@@ -10,8 +10,9 @@ import ReactDOM from 'react-dom';
 import Button from '@material-ui/core/Button';
 import Input from '@material-ui/core/Input';
 import TextField from '@material-ui/core/TextField';
-import Comment from './Comment'
+import Comments from './Comments'
 import CanvasJSReact from './assets/canvasjs.react';
+import CommentEntryForm from './CommentEntryForm';
 
 // import TodoList from './TodoList'
 // import TodoEntryForm from './TodoEntryForm';
@@ -46,6 +47,9 @@ function App() {
     const packages = ["Node.js", "Npm", "Java", "Python3","Mysql"].sort();
   
     const[content, setContent] = useState(""); 
+
+    //initially, one comment 
+    const [comments, setComments] = useState(["test"]);
   
     const[dataPoints, setDataPoints] = useState(
       [
@@ -105,6 +109,10 @@ function App() {
       setDataPoints([...dataPoints]);
     }; 
 
+    function addComment(comment) {
+      setComments(comments => [...comments, comment]);
+    }
+
 		return (
 		<div>
       <PackageList packages={packages} />
@@ -113,7 +121,7 @@ function App() {
 			/>
 			{/*You can get reference to the chart instance as shown above using onRef. This allows you to access all chart properties and methods*/}
 
-      <div class= "dataGetter">
+      <div className= "dataGetter">
         <form onSubmit = {submit}>
           <p>It took me approximatley </p>
           <TextField id="time" type="number" inputProps={inputProps} onChange={e => setContent(e.target.value)} />
@@ -122,7 +130,9 @@ function App() {
         </form>
       </div>
 
-      <Comment/>
+      <CommentEntryForm adder={addComment}/>
+
+      <Comments comments={comments}/> 
       
 
     </div>
