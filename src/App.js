@@ -1,7 +1,11 @@
 /* App.js */
+//import 
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+
+import ReactDOM from 'react-dom';
+import Button from '@material-ui/core/Button';
 
 import CanvasJSReact from './assets/canvasjs.react';
 //var React = require('react');
@@ -14,14 +18,14 @@ class App extends Component {
 		const options = {
 			animationEnabled: true,
 			title:{
-				text: "Monthly Sales - 2017"
+				text: "node.js"
 			},
 			axisX: {
-				valueFormatString: "MMM"
+        title: "Time", 
+        valueFormatString: "#"
 			},
 			axisY: {
-				title: "Sales (in USD)",
-				prefix: "$",
+				title: "Reports",
 				includeZero: false
 			},
 			data: [{
@@ -33,11 +37,10 @@ class App extends Component {
 				dataPoints: [
           { x: 5, y: 10 },
           { x: 10, y: 10 },
-					{ x: 20, y: 28 },
-					{ x: 30, y: 4 },
-					{ x: 40, y: 30 },
-					{ x: 50, y: 2 },
-					{ x: 60, y: 1 },
+					{ x: 15, y: 28 },
+					{ x: 20, y: 4 },
+					{ x: 25, y: 30 },
+					{ x: 30, y: 2 },
 				]
 			}]
 		}
@@ -47,40 +50,14 @@ class App extends Component {
 				/* onRef={ref => this.chart = ref} */
 			/>
 			{/*You can get reference to the chart instance as shown above using onRef. This allows you to access all chart properties and methods*/}
-		</div>
+      <p>hello</p>
+      <Button variant="contained" color="primary">
+      Hello World
+    </Button>
+    </div>
 		);
-	}
+  }
 }
+
+
 export default App; 
-
-
-
-
-
-
-
-// import React from 'react';
-// import logo from './logo.svg';
-// import './App.css';
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
-
-// export default App; 
