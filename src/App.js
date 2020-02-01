@@ -9,6 +9,9 @@ import Button from '@material-ui/core/Button';
 import Input from '@material-ui/core/Input';
 import TextField from '@material-ui/core/TextField';
 
+import Comment from './Comment'
+
+
 
 import CanvasJSReact from './assets/canvasjs.react';
 //var React = require('react');
@@ -93,6 +96,8 @@ function App() {
           <Button type= "submit" variant="contained" color="primary"> Add Data Point </Button>
         </form>
       </div>
+
+      <Comment/>
       
 
     </div>
