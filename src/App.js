@@ -1,10 +1,7 @@
 /* App.js */
- 
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-
-
 
 import CanvasJSReact from './assets/canvasjs.react';
 //var React = require('react');
@@ -28,22 +25,19 @@ class App extends Component {
 				includeZero: false
 			},
 			data: [{
-				yValueFormatString: "$#,###",
-				xValueFormatString: "MMMM",
+        // yValueFormatString: "$#,###",
+        yValueFormatString: "#",
+        // xValueFormatString: "MMMM",
+        xValueFormatString: "#",
 				type: "spline",
 				dataPoints: [
-					{ x: new Date(2017, 0), y: 25060 },
-					{ x: new Date(2017, 1), y: 27980 },
-					{ x: new Date(2017, 2), y: 42800 },
-					{ x: new Date(2017, 3), y: 32400 },
-					{ x: new Date(2017, 4), y: 35260 },
-					{ x: new Date(2017, 5), y: 33900 },
-					{ x: new Date(2017, 6), y: 40000 },
-					{ x: new Date(2017, 7), y: 52500 },
-					{ x: new Date(2017, 8), y: 32300 },
-					{ x: new Date(2017, 9), y: 42000 },
-					{ x: new Date(2017, 10), y: 37160 },
-					{ x: new Date(2017, 11), y: 38400 }
+          { x: 5, y: 10 },
+          { x: 10, y: 10 },
+					{ x: 20, y: 28 },
+					{ x: 30, y: 4 },
+					{ x: 40, y: 30 },
+					{ x: 50, y: 2 },
+					{ x: 60, y: 1 },
 				]
 			}]
 		}
