@@ -6,6 +6,9 @@ import './App.css';
 
 import ReactDOM from 'react-dom';
 import Button from '@material-ui/core/Button';
+import Input from '@material-ui/core/Input';
+import TextField from '@material-ui/core/TextField';
+
 
 import CanvasJSReact from './assets/canvasjs.react';
 //var React = require('react');
@@ -43,17 +46,25 @@ class App extends Component {
 					{ x: 30, y: 2 },
 				]
 			}]
-		}
+    }
+    
+    const inputProps = {
+      step: 5,
+    };
+
 		return (
 		<div>
 			<CanvasJSChart options = {options}
 				/* onRef={ref => this.chart = ref} */
 			/>
 			{/*You can get reference to the chart instance as shown above using onRef. This allows you to access all chart properties and methods*/}
-      <p>hello</p>
-      <Button variant="contained" color="primary">
-      Hello World
-    </Button>
+      <p>It took me approximatley </p>
+      <TextField id="number" type="number" inputProps={inputProps} />
+      <p> minutes to install this package. </p>
+      <Button variant="contained" color="primary"> Add Data Point </Button>
+      
+      
+
     </div>
 		);
   }
