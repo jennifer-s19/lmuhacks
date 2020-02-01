@@ -85,13 +85,14 @@ function App() {
 			/>
 			{/*You can get reference to the chart instance as shown above using onRef. This allows you to access all chart properties and methods*/}
 
-      
-      <form onSubmit = {submit}>
-        <p>It took me approximatley </p>
-        <TextField id="time" type="number" inputProps={inputProps} onChange={e => setContent(e.target.value)} />
-        <p> minutes to install this package. </p>
-        <Button type= "submit" variant="contained" color="primary"> Add Data Point </Button>
-      </form>
+      <div class= "dataGetter">
+        <form onSubmit = {submit}>
+          <p>It took me approximatley </p>
+          <TextField id="time" type="number" inputProps={inputProps} onChange={e => setContent(e.target.value)} />
+          <p> minutes to install this package. </p>
+          <Button type= "submit" variant="contained" color="primary"> Add Data Point </Button>
+        </form>
+      </div>
       
 
     </div>
