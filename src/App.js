@@ -1,23 +1,50 @@
+
 /* App.js */
 //import 
-import React, {useState} from 'react';
-import logo from './logo.svg';
 import './App.css';
-
+import React, { useState } from 'react';
+import Paper from '@material-ui/core/Paper'
+import Container from '@material-ui/core/Container'
+import Typography from '@material-ui/core/Typography'
 import ReactDOM from 'react-dom';
 import Button from '@material-ui/core/Button';
 import Input from '@material-ui/core/Input';
 import TextField from '@material-ui/core/TextField';
-
+import Comments from './Comments'
 import CanvasJSReact from './assets/canvasjs.react';
 import CommentEntryForm from './CommentEntryForm';
-import Comments from './Comments'; 
+
+// import TodoList from './TodoList'
+// import TodoEntryForm from './TodoEntryForm';
+function PackageList(props) {
+  const packages = props.packages;
+  const listItems = packages.map((packages) => 
+    <option>
+    {packages}
+    </option> 
+    );
+  return (
+    <div> 
+    <Container style={{marginTop: 20}}>
+      <Paper style={{padding: 20, backgroundColor: 'lightblue', margin:0, }}>
+        <Typography variant="h3" align="center">Download Time</Typography>
+        
+        {/* <TodoList todos={todos} deleter={deleteTodo}/> */}
+        {/* <TodoEntryForm adder={addTodo} /> */}
+      </Paper>
+    </Container>
+    <Typography variant="h6" align="left" > <select>{listItems}</select></Typography>
+    </div>
+    );
+}
+
 //var React = require('react');
 var Component = React.Component;
 //var CanvasJSReact = require('canvasjs.react');
 var CanvasJS = CanvasJSReact.CanvasJS;
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 function App() {
+    const packages = ["Node.js", "Npm", "Java", "Python3","Mysql"].sort();
   
     const[content, setContent] = useState(""); 
 
@@ -90,6 +117,7 @@ function App() {
 
 		return (
 		<div>
+      <PackageList packages={packages} />
 			<CanvasJSChart options = {options}
 				/* onRef={ref => this.chart = ref} */
 			/>
@@ -100,7 +128,7 @@ function App() {
           <p>It took me approximatley </p>
           <TextField id="time" type="number" inputProps={inputProps} onChange={e => setContent(e.target.value)} />
           <p> minutes to install this package. </p>
-          <Button type= "submit" variant="contained" color="primary"> Add Data Point </Button>
+          <Button type= "submit" variant="contained" color="primary"> ADD DATA POINT </Button>
         </form>
       </div>
 
