@@ -7,18 +7,20 @@ export default function CommentEntryForm( { adder }) {
   function submit(e) {
     e.preventDefault();
     if (content.trim()) {
-      adder({ id: uuidv4(), content });
+      adder(content);
     }
     setContent('');
   }
   return (
     <form onSubmit={submit}>
       <TextField
-        label="Add Another"
+        label="Have tips as to how to speed up the installation process? Add a comment!"
         value={content}
+        fullWidth={true}
         onChange={e => setContent(e.target.value)}
         margin="normal"
       />
     </form>
+    
   )
 }
