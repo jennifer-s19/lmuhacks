@@ -24,9 +24,6 @@ function PackageList(props) {
     );
   return (
     <div> 
-      style={{
-        backgroundColor: "grey",
-      }}
     <Container style={{marginTop: 20}}>
       <Paper style={{padding: 20, backgroundColor: 'lightblue', margin:0, }}>
         <Typography variant="h3" align="center">Download Time</Typography>
