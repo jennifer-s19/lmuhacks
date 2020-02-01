@@ -21,8 +21,10 @@ function App() {
   
     const[content, setContent] = useState(""); 
 
-    //initially, one comment 
-    const [comments, setComments] = useState(["test"]);
+    //Here's our initial comment: 
+    const [comments, setComments] = useState(["npm install node has taken me a really long time to download in the past ... anyone have any suggestions for speeding it up?",
+      "I've found that yarn install or pnpm install works a LOT faster than npm install",
+      "you can also try npm install --prefer-offline --no-audit. usually that works faster for me just npm install"]);
   
     const[dataPoints, setDataPoints] = useState(
       [
