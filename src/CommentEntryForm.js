@@ -20,7 +20,6 @@ export default function CommentEntryForm( { adder }) {
         onChange={e => setContent(e.target.value)}
         margin="normal"
       />
-    </form>
-    
+    </form>  
   )
 }
