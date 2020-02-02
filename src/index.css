@@ -6,6 +6,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: white;
+  padding-left: 50px;
+  padding-right: 50px; 
+  padding-bottom: 50px;
 }
 
 code {
@@ -19,3 +22,12 @@ code {
   justify-content: center;
   align-items: center;
 }
+
+.dropdown {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px; 
+}
+

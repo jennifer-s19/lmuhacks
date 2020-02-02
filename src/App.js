@@ -1,5 +1,5 @@
 /* App.js */
-//import 
+//imports
 import './App.css';
 import React, { useState } from 'react';
 import Paper from '@material-ui/core/Paper'
@@ -16,8 +16,6 @@ import Comments from './Comments'
 import CanvasJSReact from './assets/canvasjs.react';
 import CommentEntryForm from './CommentEntryForm';
 
-// import TodoList from './TodoList'
-// import TodoEntryForm from './TodoEntryForm';
 function PackageList(props) {
   const packages = props.packages;
   const listItems = packages.map((packages) => 
@@ -27,25 +25,27 @@ function PackageList(props) {
     );
   return (
     <div>   
-    <Container style={{marginTop: 20}}>
-      <Paper style={{padding: 20, backgroundColor: 'mediumslateblue', margin:0, }}>
-        <Typography variant="h3" align="center">Download Time</Typography>
-      </Paper>
-    </Container>
-    <InputLabel id="label">Package</InputLabel>
-      <Select labelId="label" id="select" value={props.pack} onChange={(e) => props.setPack(e.target.value)}>
-        <MenuItem value="Node">Node</MenuItem>
-        <MenuItem value="Java">Java</MenuItem>
-        <MenuItem value="MySQL">MySQL</MenuItem>
-        <MenuItem value="Python3">Python3</MenuItem>
-      </Select>
+      <div className="header">
+        <Container style={{marginTop: 20}}>
+          <Paper style={{padding: 20, backgroundColor: 'mediumslateblue', margin:0, }}>
+            <Typography variant="h3" align="center">Download Time</Typography>
+          </Paper>
+        </Container>
+      </div>
+      <div className="dropdown">
+        <InputLabel id="label">Package</InputLabel>
+        <Select labelId="label" id="select" value={props.pack} onChange={(e) => props.setPack(e.target.value)}>
+          <MenuItem value="Node">Node</MenuItem>
+          <MenuItem value="Java">Java</MenuItem>
+          <MenuItem value="MySQL">MySQL</MenuItem>
+          <MenuItem value="Python3">Python3</MenuItem>
+        </Select>
+      </div>
     </div>
     );
 }
 
-//var React = require('react');
 var Component = React.Component;
-//var CanvasJSReact = require('canvasjs.react');
 var CanvasJS = CanvasJSReact.CanvasJS;
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
@@ -64,9 +64,7 @@ function MyChart(props) {
       includeZero: false
     },
     data: [{
-      // yValueFormatString: "$#,###",
       yValueFormatString: "#",
-      // xValueFormatString: "MMMM",
       xValueFormatString: "#",
       type: "spline",
       dataPoints: props.data
@@ -102,33 +100,27 @@ function App() {
         { x: 20, y: 2 },
         { x: 25, y: 0 },
         { x: 30, y: 0 },
+      ],
+      "MySQL":[
+        { x: 0, y: 3 },
+        { x: 5, y: 8 },
+        { x: 10, y: 4 },
+        { x: 15, y: 3 },
+        { x: 20, y: 20 },
+        { x: 25, y: 19 },
+        { x: 30, y: 31 },
+      ],
+      "Python3":[
+        { x: 0, y: 2 },
+        { x: 5, y: 4 },
+        { x: 10, y: 40 },
+        { x: 15, y: 28 },
+        { x: 20, y: 14 },
+        { x: 25, y: 2 },
+        { x: 30, y: 1 },
       ]
     }
 ); 
-
-    //formatting options for the graph 
-    // const options = {
-		// 	animationEnabled: true,
-		// 	title:{
-		// 		text: pack
-		// 	},
-		// 	axisX: {
-    //     title: "Time", 
-    //     valueFormatString: "#"
-		// 	},
-		// 	axisY: {
-		// 		title: "Reports",
-		// 		includeZero: false
-		// 	},
-		// 	data: [{
-    //     // yValueFormatString: "$#,###",
-    //     yValueFormatString: "#",
-    //     // xValueFormatString: "MMMM",
-    //     xValueFormatString: "#",
-		// 		type: "spline",
-		// 		dataPoints: dataPoints[pack]
-		// 	}]
-    // }
     
     const inputProps = {
       step: 5,
