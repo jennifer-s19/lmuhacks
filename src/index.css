@@ -5,10 +5,16 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: white;
+  background-color: white; 
   padding-left: 50px;
   padding-right: 50px; 
   padding-bottom: 50px;
+
+  /* background: linear-gradient(#FFFFFF 50%, rgba(255,255,255,0) 0) 0 0,
+  radial-gradient(circle closest-side, #FFFFFF 53%, rgba(255,255,255,0) 0) 0 0,
+  radial-gradient(circle closest-side, #FFFFFF 50%, rgba(255,255,255,0) 0) 55px 0 rgb(65, 68, 188);
+  background-size: 110px 200px;
+  background-repeat: repeat-x; */
 }
 
 code {
@@ -48,4 +54,9 @@ code {
 #rightText {
   margin-left: 20px;
   margin-right: 20px; 
+}
+
+#title {
+  background-color: rgb(65,68,138);
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; 
 }
