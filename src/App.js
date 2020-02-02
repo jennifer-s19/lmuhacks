@@ -1,4 +1,3 @@
-
 /* App.js */
 //import 
 import './App.css';
@@ -9,6 +8,9 @@ import Typography from '@material-ui/core/Typography'
 import ReactDOM from 'react-dom';
 import Button from '@material-ui/core/Button';
 import Input from '@material-ui/core/Input';
+import InputLabel from '@material-ui/core/InputLabel';
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
 import Comments from './Comments'
 import CanvasJSReact from './assets/canvasjs.react';
@@ -24,16 +26,19 @@ function PackageList(props) {
     </option> 
     );
   return (
-    <div> 
+    <div>   
     <Container style={{marginTop: 20}}>
-      <Paper style={{padding: 20, backgroundColor: 'lightblue', margin:0, }}>
+      <Paper style={{padding: 20, backgroundColor: 'mediumslateblue', margin:0, }}>
         <Typography variant="h3" align="center">Download Time</Typography>
-        
-        {/* <TodoList todos={todos} deleter={deleteTodo}/> */}
-        {/* <TodoEntryForm adder={addTodo} /> */}
       </Paper>
     </Container>
-    <Typography variant="h6" align="left" > <select>{listItems}</select></Typography>
+    <InputLabel id="label">Package</InputLabel>
+      <Select labelId="label" id="select" value="Node">
+        <MenuItem value="Node">Node</MenuItem>
+        <MenuItem value="Java">Java</MenuItem>
+        <MenuItem value="MySQL">MySQL</MenuItem>
+        <MenuItem value="Python3">Python3</MenuItem>
+      </Select>
     </div>
     );
 }
@@ -53,6 +58,8 @@ function App() {
       "I've found that yarn install or pnpm install works a LOT faster than npm install",
       "you can also try npm install --prefer-offline --no-audit. usually that works faster for me just npm install"]);
   
+
+    //data points for the graph 
     const[dataPoints, setDataPoints] = useState(
       [
 
@@ -66,6 +73,7 @@ function App() {
       ]
     ); 
 
+    //formatting options for the graph 
     const options = {
 			animationEnabled: true,
 			title:{
@@ -117,6 +125,8 @@ function App() {
 
 		return (
 		<div>
+
+
       <PackageList packages={packages} />
 			<CanvasJSChart options = {options}
 				/* onRef={ref => this.chart = ref} */
@@ -131,6 +141,8 @@ function App() {
           <Button type= "submit" variant="contained" color="primary"> ADD DATA POINT </Button>
         </form>
       </div>
+
+
 
       <CommentEntryForm adder={addComment}/>
 
