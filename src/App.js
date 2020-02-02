@@ -102,33 +102,27 @@ function App() {
         { x: 20, y: 2 },
         { x: 25, y: 0 },
         { x: 30, y: 0 },
+      ],
+      "MySQL":[
+        { x: 0, y: 3 },
+        { x: 5, y: 8 },
+        { x: 10, y: 4 },
+        { x: 15, y: 3 },
+        { x: 20, y: 20 },
+        { x: 25, y: 19 },
+        { x: 30, y: 31 },
+      ],
+      "Python3":[
+        { x: 0, y: 2 },
+        { x: 5, y: 4 },
+        { x: 10, y: 40 },
+        { x: 15, y: 28 },
+        { x: 20, y: 14 },
+        { x: 25, y: 2 },
+        { x: 30, y: 1 },
       ]
     }
 ); 
-
-    //formatting options for the graph 
-    // const options = {
-		// 	animationEnabled: true,
-		// 	title:{
-		// 		text: pack
-		// 	},
-		// 	axisX: {
-    //     title: "Time", 
-    //     valueFormatString: "#"
-		// 	},
-		// 	axisY: {
-		// 		title: "Reports",
-		// 		includeZero: false
-		// 	},
-		// 	data: [{
-    //     // yValueFormatString: "$#,###",
-    //     yValueFormatString: "#",
-    //     // xValueFormatString: "MMMM",
-    //     xValueFormatString: "#",
-		// 		type: "spline",
-		// 		dataPoints: dataPoints[pack]
-		// 	}]
-    // }
     
     const inputProps = {
       step: 5,
