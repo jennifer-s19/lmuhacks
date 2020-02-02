@@ -160,7 +160,7 @@ function App() {
     <div>
 
     <Container maxWidth={false}>
-      <Typography id="title" variant="h2" align="center">Installation Time</Typography>
+      <Typography id="title" variant="h2" align="center">PackTime</Typography>
     </Container>
 
       <PackageList packages={packages} pack={pack} setPack={setPack}/>
