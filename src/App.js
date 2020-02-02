@@ -157,10 +157,10 @@ function App() {
       <MyChart data={dataPoints[pack]} pack={pack}/>
 			{/* <CanvasJSChart options = {options}/> */}
       <div className= "dataGetter">
-        <form onSubmit = {submit}>
-          <p>It took me approximatley </p>
+        <form className ="form" onSubmit = {submit}>
+          <p id="leftText">It took me approximatley </p>
           <TextField id="time" type="number" inputProps={inputProps} onChange={e => setContent(e.target.value)} />
-          <p> minutes to install this package. </p>
+          <p id="rightText"> minutes to install this package. </p>
           <Button type= "submit" variant="contained" color="primary"> ADD DATA POINT </Button>
         </form>
       </div>
