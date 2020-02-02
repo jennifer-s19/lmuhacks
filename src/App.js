@@ -26,11 +26,14 @@ function PackageList(props) {
   return (
     <div>   
       <div className="header">
-        <Container style={{marginTop: 20}}>
+        
+        {/* <Container style={{marginTop: 20}}>
+  
           <Paper style={{padding: 20, backgroundColor: 'mediumslateblue', margin:0, }}>
             <Typography variant="h3" align="center">Download Time</Typography>
           </Paper>
-        </Container>
+        </Container> */}
+        
       </div>
       <div className="dropdown">
         <InputLabel id="label">Package</InputLabel>
@@ -152,7 +155,14 @@ function App() {
     }
 
 		return (
-		<div>
+	
+    
+    <div>
+
+    <Container maxWidth={false}>
+      <Typography id="title" variant="h2" align="center">Installation Time</Typography>
+    </Container>
+
       <PackageList packages={packages} pack={pack} setPack={setPack}/>
       <MyChart data={dataPoints[pack]} pack={pack}/>
 			{/* <CanvasJSChart options = {options}/> */}
