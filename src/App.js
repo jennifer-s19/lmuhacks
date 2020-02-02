@@ -33,7 +33,7 @@ function PackageList(props) {
       </Paper>
     </Container>
     <InputLabel id="label">Package</InputLabel>
-      <Select labelId="label" id="select" value="Node">
+      <Select labelId="label" id="select" value={props.pack} onChange={(e) => props.setPack(e.target.value)}>
         <MenuItem value="Node">Node</MenuItem>
         <MenuItem value="Java">Java</MenuItem>
         <MenuItem value="MySQL">MySQL</MenuItem>
@@ -48,21 +48,44 @@ var Component = React.Component;
 //var CanvasJSReact = require('canvasjs.react');
 var CanvasJS = CanvasJSReact.CanvasJS;
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
+
+function MyChart(props) {
+  const options = {
+    animationEnabled: true,
+    title:{
+      text: props.pack
+    },
+    axisX: {
+      title: "Time", 
+      valueFormatString: "#"
+    },
+    axisY: {
+      title: "Reports",
+      includeZero: false
+    },
+    data: [{
+      // yValueFormatString: "$#,###",
+      yValueFormatString: "#",
+      // xValueFormatString: "MMMM",
+      xValueFormatString: "#",
+      type: "spline",
+      dataPoints: props.data
+    }]
+  }
+  return (<CanvasJSChart options = {options}/>)
+}
+
 function App() {
     const packages = ["Node.js", "Npm", "Java", "Python3","Mysql"].sort();
-  
     const[content, setContent] = useState(""); 
-
+    const[pack, setPack] = useState("Node");
     //Here's our initial comment: 
-    const [comments, setComments] = useState(["npm install node has taken me a really long time to download in the past ... anyone have any suggestions for speeding it up?",
+    const[comments, setComments] = useState(["npm install node has taken me a really long time to download in the past ... anyone have any suggestions for speeding it up?",
       "I've found that yarn install or pnpm install works a LOT faster than npm install",
       "you can also try npm install --prefer-offline --no-audit. usually that works faster for me just npm install"]);
-  
-
     //data points for the graph 
-    const[dataPoints, setDataPoints] = useState(
-      [
-
+    const[dataPoints, setDataPoints] = useState({
+      "Node":[
         { x: 0, y: 4 },
         { x: 5, y: 10 },
         { x: 10, y: 10 },
@@ -70,32 +93,42 @@ function App() {
         { x: 20, y: 4 },
         { x: 25, y: 30 },
         { x: 30, y: 2 },
+      ],
+      "Java":[
+        { x: 0, y: 20 },
+        { x: 5, y: 40 },
+        { x: 10, y: 4 },
+        { x: 15, y: 3 },
+        { x: 20, y: 2 },
+        { x: 25, y: 0 },
+        { x: 30, y: 0 },
       ]
-    ); 
+    }
+); 
 
     //formatting options for the graph 
-    const options = {
-			animationEnabled: true,
-			title:{
-				text: "node.js"
-			},
-			axisX: {
-        title: "Time", 
-        valueFormatString: "#"
-			},
-			axisY: {
-				title: "Reports",
-				includeZero: false
-			},
-			data: [{
-        // yValueFormatString: "$#,###",
-        yValueFormatString: "#",
-        // xValueFormatString: "MMMM",
-        xValueFormatString: "#",
-				type: "spline",
-				dataPoints: dataPoints
-			}]
-    }
+    // const options = {
+		// 	animationEnabled: true,
+		// 	title:{
+		// 		text: pack
+		// 	},
+		// 	axisX: {
+    //     title: "Time", 
+    //     valueFormatString: "#"
+		// 	},
+		// 	axisY: {
+		// 		title: "Reports",
+		// 		includeZero: false
+		// 	},
+		// 	data: [{
+    //     // yValueFormatString: "$#,###",
+    //     yValueFormatString: "#",
+    //     // xValueFormatString: "MMMM",
+    //     xValueFormatString: "#",
+		// 		type: "spline",
+		// 		dataPoints: dataPoints[pack]
+		// 	}]
+    // }
     
     const inputProps = {
       step: 5,
@@ -107,16 +140,19 @@ function App() {
       if (0 > x || x > 30) {
         return; 
       }
-      console.log(content); 
-      const i = dataPoints.findIndex(p => p.x === x); 
+      // console.log(content); 
+
+      const data = dataPoints[pack];
+
+      const i = data.findIndex(p => p.x === x); 
       console.log(i); 
 
       if (i == -1) {
         return;
       }
-      dataPoints[i].y += 1;
-      const y = dataPoints[i].y; 
-      setDataPoints([...dataPoints]);
+      data[i].y += 1;
+      const y = dataPoints[pack][i].y; 
+      setDataPoints({... dataPoints}); //dataPoints.copy()
     }; 
 
     function addComment(comment) {
@@ -125,14 +161,9 @@ function App() {
 
 		return (
 		<div>
-
-
-      <PackageList packages={packages} />
-			<CanvasJSChart options = {options}
-				/* onRef={ref => this.chart = ref} */
-			/>
-			{/*You can get reference to the chart instance as shown above using onRef. This allows you to access all chart properties and methods*/}
-
+      <PackageList packages={packages} pack={pack} setPack={setPack}/>
+      <MyChart data={dataPoints[pack]} pack={pack}/>
+			{/* <CanvasJSChart options = {options}/> */}
       <div className= "dataGetter">
         <form onSubmit = {submit}>
           <p>It took me approximatley </p>
@@ -141,17 +172,10 @@ function App() {
           <Button type= "submit" variant="contained" color="primary"> ADD DATA POINT </Button>
         </form>
       </div>
-
-
-
       <CommentEntryForm adder={addComment}/>
-
       <Comments comments={comments}/> 
-      
-
     </div>
 		);
 }
-
 
 export default App; 
